@@ -1,14 +1,16 @@
 // Handle form submission on the homepage
+// Handle form submission on the homepage
 document.getElementById('compare-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get the player names
+    // Get the player names from the form
     const playerA = document.getElementById('playerA').value;
     const playerB = document.getElementById('playerB').value;
 
-    // Redirect to comparison.html with player names in the URL
-    window.location.href = `comparison.html?playerA=${playerA}&playerB=${playerB}`;
+    // Redirect to the comparison page with player names as URL parameters
+    window.location.href = `comparison.html?playerA=${encodeURIComponent(playerA)}&playerB=${encodeURIComponent(playerB)}`;
 });
+
 
 // On the comparison page, display the player names and basic stats
 if (window.location.pathname.includes('comparison.html')) {
